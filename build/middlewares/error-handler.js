@@ -6,6 +6,7 @@ var errorHandler = function (error, request, response, next) {
     if (error instanceof custom_error_1.CustomError) {
         return response.status(error.statusCode).send({ errors: error.serializeErrors() });
     }
+    console.error(error);
     response.status(400).send([{ message: 'Something went wrong' }]);
 };
 exports.errorHandler = errorHandler;
